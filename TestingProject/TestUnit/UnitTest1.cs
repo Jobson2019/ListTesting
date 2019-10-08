@@ -32,10 +32,17 @@ namespace TestUnit
            
             // act
             testList.Add(234);
+            testList.Add(300);
+            testList.Add(500);
+            testList.Add(800);
             actual = testList.Count;
             // assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+
+
+       
     }
     }
 
