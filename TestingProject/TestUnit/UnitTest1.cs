@@ -8,6 +8,8 @@ namespace TestUnit
     public class UnitTest1
     {
         [TestMethod]
+
+        
      
         
             public void Add_AddToEmptyList_ItemGoesToIndexZero()
@@ -27,15 +29,15 @@ namespace TestUnit
         {
             // arrange
             CustomList<int> testList = new CustomList<int>();
-            int expected = 1;
-            int actual;
+            int expected = 3;
+            
            
             // act
             testList.Add(234);
             testList.Add(300);
             testList.Add(500);
             testList.Add(800);
-            actual = testList.Count;
+            int actual = testList [3];
             // assert
             Assert.AreEqual(expected, actual);
         }

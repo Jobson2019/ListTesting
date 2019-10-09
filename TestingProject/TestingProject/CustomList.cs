@@ -8,7 +8,8 @@ namespace TestingProject
 {
     public class CustomList<T>
     {
-            
+        private int count;
+        private int capacity;
 
         public T this [int index]
         {
@@ -21,7 +22,7 @@ namespace TestingProject
                 }
                 else
                 {
-                    throw new System.ArgumentException("Index out of range");
+                    throw new System.ArgumentException("Out of Bounds");
                 }
                 return (temp);
             }
@@ -51,19 +52,18 @@ namespace TestingProject
             {
                 items = new T[4];
             }
-            public void Add(T itemToAdd)
-            {
+            //public void Add(T itemToAdd)
+            //{
              
             
                  
                 
-                    items[count] = itemToAdd;
-                    IncrementCount();
+            //        items[count] = itemToAdd;
+            //        IncrementCount();
                 
             
-            }
-        private int count;
-        private int capacity;
+            //}
+       
 
         public void GrowArray()
         {

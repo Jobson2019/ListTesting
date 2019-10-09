@@ -19,6 +19,8 @@ namespace TestingProject
                 numbers.Add(6);
                 numbers.Add(8);
                 numbers.Add(12);
+            // indexer
+            int num = (2);
 
 
             
