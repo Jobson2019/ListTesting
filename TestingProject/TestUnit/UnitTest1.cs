@@ -42,6 +42,26 @@ namespace TestUnit
             //assert
             Assert.AreEqual(expected, expectedTwo, actual);
         }
+        //add three
+        [TestMethod]
+        public void Add_ThreeToEmptyList_ItemGoesToIndexZero()
+        {
+            //arrange
+            CustomList<int> testList = new CustomList<int>();
+            int expected = 8;
+            int expectedTwo = 9;
+            int expectedThree = 7;
+            int actual;
+
+            //act
+            testList.Add(8);
+            testList.Add(9);
+            testList.Add(7);
+            actual = testList[0];
+
+            //assert
+            Assert.AreEqual(expected, expectedTwo, expectedThree);
+        }
 
         // remove method test 1
         [TestMethod]
