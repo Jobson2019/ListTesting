@@ -10,7 +10,13 @@ namespace TestingProject
     {
         private int count;
         private int capacity;
-        
+
+        public CustomList()
+        {
+            items = new T[4];
+            capacity = 4;
+            count = 0;
+        }
         
         
         
@@ -55,10 +61,7 @@ namespace TestingProject
         
             
 
-            public CustomList ()
-            {
-                items = new T[4];
-            }
+           
             //public void Add(T itemToAdd)
             //{
              
@@ -74,7 +77,14 @@ namespace TestingProject
 
         public void GrowArray()
         {
-
+            int newSize = capacity * 2;
+            T[] larger = new T[newSize];
+            for (int i = 0; i < items.Length; i++)
+            {
+                larger[i] = items[i];
+            }
+            items = larger;
+            Capacity = capacity * 2;
         }
         
         public int Count
@@ -90,9 +100,13 @@ namespace TestingProject
             {
                 return capacity;
             }
+            set
+            {
+                capacity = value;
+            }
         }
 
-            public void Clear()
+         public void Clear()
             { 
             }
         public void IncrementCount()
@@ -131,7 +145,7 @@ namespace TestingProject
                 {
                     for (int y = i; y < (items.Length - i); y++)
                     {
-                        items[i] = items[i + 1];
+                        items[y] = items[y + 1];
                     }
                     count -= 1;
                     break;
