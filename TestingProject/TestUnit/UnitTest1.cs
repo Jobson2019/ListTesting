@@ -10,11 +10,7 @@ namespace TestUnit
 
         [TestMethod]
 
-
-
-
-
-
+        //add int to empty list
         public void Add_AddToEmptyList_ItemGoesToIndexZero()
         {
             // arrange
@@ -28,6 +24,24 @@ namespace TestUnit
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        //add two ints to empty list
+        public void Add_TwoToEmptyList_ItemGoesToIndexZero()
+        {
+            //arrange
+            CustomList<int> testList = new CustomList<int>();
+            int expected = 12;
+            int expectedTwo = 11;
+            int actual;
+
+            //act
+            testList.Add(12);
+            testList.Add(11);
+            actual = testList[0];
+
+            //assert
+            Assert.AreEqual(expected, expectedTwo, actual);
+        }
 
         // remove method test 1
         [TestMethod]
@@ -54,7 +68,7 @@ namespace TestUnit
             // assert
             Assert.AreEqual(expected, actual);
         }
-
+        //remove method 2, removing two integers
         [TestMethod]
         public void RemoveTwoIntegers()
         {    //arrange
@@ -79,10 +93,7 @@ namespace TestUnit
             int actual = testList.Count;
             expected = testList.Count;
             expectedTwo = testList.Count;
-            
-
-
-            //assert
+             //assert
             Assert.AreEqual(expected, expectedTwo, actual);
         }
 
