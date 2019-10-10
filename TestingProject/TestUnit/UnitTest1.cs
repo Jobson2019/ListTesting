@@ -53,9 +53,23 @@ namespace TestUnit
             int actual = testList.Count;
             // assert
             Assert.AreEqual(expected, actual);
+             }
+
+            [TestMethod]
+        public void ConToString()
+        {
+        CustomList<string> testList = new CustomList<string>();
+        string expected = "Trombone";
+            testList.Add("Tro");
+            testList.Add("mbo");
+            testList.Add("ne");
+            string actual = testList.ToString();
+            Assert.AreEqual(expected, actual);
+
+        }
         }
     }
-}
+
        
 
 

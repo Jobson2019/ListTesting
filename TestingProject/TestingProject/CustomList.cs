@@ -159,6 +159,16 @@ namespace TestingProject
             }
         }
         // need to override ToString Method
+        public override string ToString()
+        {
+            string result = "";
+            for (int i = 0; i < items.Length; i++)
+            {
+               result += items[i].ToString();
+            }
+            return result;
+              
+        }
 
         //need to overload + and - operator and know what that means. Also, need to add .txt file which describes the details and funcitonality of my operator overload.
 
