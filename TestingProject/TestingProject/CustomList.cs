@@ -17,19 +17,19 @@ namespace TestingProject
             capacity = 4;
             count = 0;
         }
-        
-        
-        
+
+
+
         //private array
         private T[] items;
 
         //capacity property
-        public T this [int index]
+        public T this[int index]
         {
             get
             {
                 T temp;
-                if (index >= 0 && index <= count -1)
+                if (index >= 0 && index < count)
                 {
                     temp = items[index];
                 }
@@ -41,7 +41,7 @@ namespace TestingProject
             }
             set
             {
-                if (index >= 0 && index <= capacity -1)
+                if (index >= 0 && index < capacity)
                 {
                     items[index] = value;
                 }
@@ -58,22 +58,22 @@ namespace TestingProject
             IncrementCount();
         }
 
-        
-            
 
-           
-            //public void Add(T itemToAdd)
-            //{
-             
-            
-                 
-                
-            //        items[count] = itemToAdd;
-            //        IncrementCount();
-                
-            
-            //}
-       
+
+
+
+        //public void Add(T itemToAdd)
+        //{
+
+
+
+
+        //        items[count] = itemToAdd;
+        //        IncrementCount();
+
+
+        //}
+
 
         public void GrowArray()
         {
@@ -86,7 +86,7 @@ namespace TestingProject
             items = larger;
             Capacity = capacity * 2;
         }
-        
+
         public int Count
         {
             get
@@ -96,7 +96,7 @@ namespace TestingProject
         }
         public int Capacity
         {
-           get
+            get
             {
                 return capacity;
             }
@@ -106,14 +106,14 @@ namespace TestingProject
             }
         }
 
-         public void Clear()
-            { 
-            }
+        public void Clear()
+        {
+        }
         public void IncrementCount()
         {
             count += 1;
         }
-        
+
         //need remove method
         //public bool Remove(T itemToRemove)
         //{
@@ -127,9 +127,9 @@ namespace TestingProject
         //        {
         //            return false;
         //        }
-                            
 
-                
+
+
 
         //    }
         //}
@@ -150,8 +150,8 @@ namespace TestingProject
                     count -= 1;
                     break;
                 }
-               
-                
+
+
 
 
 
@@ -162,15 +162,24 @@ namespace TestingProject
         public override string ToString()
         {
             string result = "";
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < count; i++)
             {
-               result += items[i].ToString();
+                result += items[i].ToString();
             }
             return result;
-              
+
         }
 
         //need to overload + and - operator and know what that means. Also, need to add .txt file which describes the details and funcitonality of my operator overload.
+        //1 + 1 = 2 "go" + "packers!" = "Go Packers"
+        //public int (int one, int two)
+        //     {
+        //    int sum = one + two;
+        //    return sum;
+        //    }
+        // CustomList<int> odd = new CustomList<int>() {1,3,5}
+        // CustomList<int> even = new CustomList<int>() {2,4,6};
+        // CustomList<int> result = odd + even;
 
 
         //zip two custom list class instances together in the form of a zipper

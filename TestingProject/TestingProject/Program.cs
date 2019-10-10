@@ -10,12 +10,18 @@ namespace TestingProject
     {
         static void Main(string[] args)
         {
-           
-            
-                
 
 
-            
+            CustomList<string> testList = new CustomList<string>();
+            string expected = "Trombone";
+            testList.Add("Tro");
+            testList.Add("mbo");
+            testList.Add("ne");
+            string actual = testList.ToString();
+            Console.ReadKey();
+
+
+
         }
     }
 }

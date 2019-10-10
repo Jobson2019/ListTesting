@@ -29,7 +29,7 @@ namespace TestUnit
         }
 
 
-
+        // remove method test 1
         [TestMethod]
         public void RemoveInteger()
         {
@@ -38,7 +38,7 @@ namespace TestUnit
             int expected = 9;
 
 
-            // act
+            //act
             testList.Add(1);
             testList.Add(2);
             testList.Add(3);
@@ -53,7 +53,38 @@ namespace TestUnit
             int actual = testList.Count;
             // assert
             Assert.AreEqual(expected, actual);
-             }
+        }
+
+        [TestMethod]
+        public void RemoveTwoIntegers()
+        {    //arrange
+            CustomList<int> testList = new CustomList<int>();
+            int expected = 5;
+            int expectedTwo = 3;
+    
+           
+           //act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            testList.Add(6);
+            testList.Add(7);
+            testList.Add(8);
+            testList.Add(9);
+            testList.Add(10);
+            testList.Remove(5);
+            testList.Remove(3);
+            int actual = testList.Count;
+            expected = testList.Count;
+            expectedTwo = testList.Count;
+            
+
+
+            //assert
+            Assert.AreEqual(expected, expectedTwo, actual);
+        }
 
             [TestMethod]
         public void ConToString()
@@ -66,8 +97,10 @@ namespace TestUnit
             string actual = testList.ToString();
             Assert.AreEqual(expected, actual);
 
+            
+
         }
-        }
+     }
     }
 
        
