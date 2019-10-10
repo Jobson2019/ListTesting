@@ -10,7 +10,14 @@ namespace TestingProject
     {
         private int count;
         private int capacity;
+        
+        
+        
+        
+        //private array
+        private T[] items;
 
+        //capacity property
         public T this [int index]
         {
             get
@@ -34,7 +41,7 @@ namespace TestingProject
                 }
             }
         }
-
+        //add method
         public void Add(T itemToAdd)
         {
             if (count == capacity)
@@ -45,7 +52,7 @@ namespace TestingProject
             IncrementCount();
         }
 
-        private T[] items;
+        
             
 
             public CustomList ()
@@ -92,9 +99,59 @@ namespace TestingProject
         {
             count += 1;
         }
-
-
-
         
+        //need remove method
+        //public bool Remove(T itemToRemove)
+        //{
+        //    for (int i = 0; i < items.Length; i++) 
+        //    {
+        //        if (items[i].Equals (itemToRemove))
+        //        {
+        //            return true;
+        //        }
+        //        if else (items[i] != (itemToRemove))
+        //        {
+        //            return false;
+        //        }
+                            
+
+                
+
+        //    }
+        //}
+
+
+
+
+        public void Remove(T itemToRemove)
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].Equals(itemToRemove))
+                {
+                    for (int y = i; y < (items.Length - i); y++)
+                    {
+                        items[i] = items[i + 1];
+                    }
+                    count -= 1;
+                    break;
+                }
+               
+                
+
+
+
+
+            }
+        }
+        // need to override ToString Method
+
+        //need to overload + and - operator and know what that means. Also, need to add .txt file which describes the details and funcitonality of my operator overload.
+
+
+        //zip two custom list class instances together in the form of a zipper
+
+
+
     }
 }
