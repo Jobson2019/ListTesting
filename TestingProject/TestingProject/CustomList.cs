@@ -147,9 +147,9 @@ namespace TestingProject
                 if (items[i].Equals(item))
                 {
                     DecrementCount();
-                    for (int y = i; y < Count; y++)
+                    for (int x = i; x < Count; x++)
                     {
-                        items[y] = items[y + 1];
+                        items[x] = items[x + 1];
                     }
                     return items;
                 }
@@ -159,15 +159,6 @@ namespace TestingProject
                 }
             }
             return items;
-        }
-
-
-
-
-
-
-    }
-            return false;
         }
         // need to override ToString Method
         public override string ToString()

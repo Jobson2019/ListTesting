@@ -42,9 +42,7 @@ namespace TestUnit
             //assert
             Assert.AreEqual(expected, expectedTwo, actual);
         }
-        //check count
-        //more integers
-        //items listing
+        
         //add three
         [TestMethod]
         public void Add_ThreeToEmptyList_ItemGoesToIndexZero()
@@ -65,6 +63,31 @@ namespace TestUnit
             //assert
             Assert.AreEqual(expected, expectedTwo, expectedThree);
         }
+
+
+
+        //check count
+
+        //more integers
+        [TestMethod]
+        public void AddWithDouble()
+        {
+            //arrange
+            CustomList<double> testList = new CustomList<double>();
+            double expected;
+            double actual;
+            //act
+            testList.Add(1.3);
+            testList.Add(2.3);
+            testList.Add(3.3);
+            testList.Add(4.3);
+            testList.Add(5.3);
+            testList.Add(6.3);
+            testList.Add(7.3);
+            expected = testList[2];
+            actual = testList[0];
+        }
+        //items listing
 
         // remove method test 1
         [TestMethod]
@@ -137,7 +160,7 @@ namespace TestUnit
             testList.Add(2);
             testList.Add(2);
             testList.Add(2);
-            testList.Remove(3);
+            testList.Remove(2);
             actual = testList.Count;
             expected = testList.Count;
             //assert
@@ -151,7 +174,7 @@ namespace TestUnit
             //arrange
             CustomList<int> testList = new CustomList<int>();
             bool expected = false;
-            bool actual;
+            bool actual = false;
             //act
             testList.Add(5);
             testList.Add(5);
@@ -163,12 +186,10 @@ namespace TestUnit
             testList.Add(5);
             testList.Add(5);
             testList.Add(5);
-            actual = testList.Remove(2);
-
-            //assert
+            testList.Remove(2);
+            
+             //assert
             Assert.AreEqual(actual, expected);
-
-
         }
 
 
