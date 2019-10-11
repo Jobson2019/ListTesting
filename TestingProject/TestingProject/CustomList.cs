@@ -139,32 +139,34 @@ namespace TestingProject
 
 
 
-            //remove
-        public bool Remove(T itemToRemove)
+        //remove
+        public T[] Remove(T item)
         {
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < Count; i++)
             {
-                if (items[i].Equals(itemToRemove))
+                if (items[i].Equals(item))
                 {
                     DecrementCount();
-                    for (int y = i; y < (count - i); y++)
+                    for (int y = i; y < Count; y++)
                     {
-                        if (y == count)
-                        {
-                            return true;
-                        }
                         items[y] = items[y + 1];
                     }
-                   
-                    break;
+                    return items;
                 }
-
-
-
-
-
-
+                else
+                {
+                    continue;
+                }
             }
+            return items;
+        }
+
+
+
+
+
+
+    }
             return false;
         }
         // need to override ToString Method

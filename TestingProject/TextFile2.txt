@@ -1,0 +1,42 @@
+Overload - operator 
+
+
+the overload - operator makes a new list, subtracting everything from the first list and adding it to the new list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public static CustomList<T> operator - (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> result = new CustomList<T>();
+            CustomList<T> temp = new CustomList<T>();
+            temp = listTwo;
+
+            foreach (T item in listOne)
+            {
+                if (temp.Contains(item))
+                {
+                    temp.Remove(item);
+                }
+                else
+                {
+                    result.Add(item);
+                }
+
+            }
+            return result;
+
+        }
+

@@ -121,6 +121,28 @@ namespace TestUnit
         }
 
         // idea remove 2, and only have method remove the first instance of 2
+        [TestMethod]
+        public void RemoveFirstInteger()
+        {
+            //arrange
+            CustomList<int> testList = new CustomList<int>();
+            int expected = 2;
+            int actual;
+
+            //act
+            testList.Add(2);
+            testList.Add(2);
+            testList.Add(2);
+            testList.Add(2);
+            testList.Add(2);
+            testList.Add(2);
+            testList.Add(2);
+            testList.Remove(3);
+            actual = testList.Count;
+            expected = testList.Count;
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
 
         // idea, in remove 2 in list of 5, return true/false via bool
         [TestMethod]
@@ -189,6 +211,7 @@ namespace TestUnit
         //}
     }
 }
+
 
        
 
