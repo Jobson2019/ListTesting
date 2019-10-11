@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestingProject
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable<T>
     {
         private int count;
         private int capacity;
@@ -113,7 +113,10 @@ namespace TestingProject
         {
             count += 1;
         }
-
+        public void DecrementCount()
+        {
+            count -= 1;
+        }
         //need remove method
         //public bool Remove(T itemToRemove)
         //{
@@ -136,18 +139,23 @@ namespace TestingProject
 
 
 
-
-        public void Remove(T itemToRemove)
+            //remove
+        public bool Remove(T itemToRemove)
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < count; i++)
             {
                 if (items[i].Equals(itemToRemove))
                 {
-                    for (int y = i; y < (items.Length - i); y++)
+                    DecrementCount();
+                    for (int y = i; y < (count - i); y++)
                     {
+                        if (y == count)
+                        {
+                            return true;
+                        }
                         items[y] = items[y + 1];
                     }
-                    count -= 1;
+                   
                     break;
                 }
 
@@ -157,6 +165,7 @@ namespace TestingProject
 
 
             }
+            return false;
         }
         // need to override ToString Method
         public override string ToString()
@@ -170,8 +179,95 @@ namespace TestingProject
 
         }
 
+        // overload + operator
+        public static CustomList<T> operator + (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            foreach (T item in listTwo)
+            {
+                listOne.Add(item);
+            }
+            return listOne;
+        }
+
+        // overload - operator
+        public static CustomList<T> operator - (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> result = new CustomList<T>();
+            CustomList<T> temp = new CustomList<T>();
+            temp = listTwo;
+
+            foreach (T item in listOne)
+            {
+                if (temp.Contains(item))
+                {
+                    temp.Remove(item);
+                }
+                else
+                {
+                    result.Add(item);
+                }
+
+            }
+            return result;
+
+        }
+
+       // iterator
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
 
 
+        public CustomList<T> Zip(CustomList<T> listTwo)
+        {
+            CustomList<T> result = new CustomList<T>();
+
+            if (count > listTwo.count)
+            {
+                for (int i = 0; i < listTwo.count; i++)
+                {
+                    result.Add(items[i]);
+                    result.Add(items[i]);
+                }
+                for (int i = (count - listTwo.count); i < count; i++)
+                {
+                    result.Add(items[i]);
+                }
+            }
+            if (count < listTwo.count)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    result.Add(items[i]);
+                    result.Add(listTwo[i]);
+                }
+                for (int i = (listTwo.count - count); i < listTwo.count; i++)
+                {
+                    result.Add(items[i]);
+                }
+
+            }
+            if (count == listTwo.count)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    result.Add(items[i]);
+                    result.Add(listTwo[i]);
+                }
+                
+            }
+            return result;
+        }
 
         //need to overload + and - operator and know what that means. Also, need to add .txt file which describes the details and funcitonality of my operator overload.
         //1 + 1 = 2 "go" + "packers!" = "Go Packers"

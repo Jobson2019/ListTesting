@@ -42,6 +42,9 @@ namespace TestUnit
             //assert
             Assert.AreEqual(expected, expectedTwo, actual);
         }
+        //check count
+        //more integers
+        //items listing
         //add three
         [TestMethod]
         public void Add_ThreeToEmptyList_ItemGoesToIndexZero()
@@ -95,9 +98,9 @@ namespace TestUnit
             CustomList<int> testList = new CustomList<int>();
             int expected = 5;
             int expectedTwo = 3;
-    
-           
-           //act
+            int actual;
+
+            //act
             testList.Add(1);
             testList.Add(2);
             testList.Add(3);
@@ -110,29 +113,82 @@ namespace TestUnit
             testList.Add(10);
             testList.Remove(5);
             testList.Remove(3);
-            int actual = testList.Count;
+            actual = testList.Count;
             expected = testList.Count;
             expectedTwo = testList.Count;
-             //assert
+            //assert
             Assert.AreEqual(expected, expectedTwo, actual);
         }
 
-            [TestMethod]
+        // idea remove 2, and only have method remove the first instance of 2
+
+        // idea, in remove 2 in list of 5, return true/false via bool
+        [TestMethod]
+        public void RemoveAndReturn()
+        {
+            //arrange
+            CustomList<int> testList = new CustomList<int>();
+            bool expected = false;
+            bool actual;
+            //act
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            testList.Add(5);
+            actual = testList.Remove(2);
+
+            //assert
+            Assert.AreEqual(actual, expected);
+
+
+        }
+
+
+        //convert to string test
+
+        [TestMethod]
         public void ConToString()
         {
-        CustomList<string> testList = new CustomList<string>();
-        string expected = "Trombone";
+            //arrange
+            CustomList<string> testList = new CustomList<string>();
+            string expected = "Trombone";
+            //act
             testList.Add("Tro");
             testList.Add("mbo");
             testList.Add("ne");
             string actual = testList.ToString();
+            //assert
             Assert.AreEqual(expected, actual);
-
-            
-
         }
-     }
+        //convert to String Test Two
+        [TestMethod]
+        public void ConToStringTwo()
+        {
+            CustomList<string> testList = new CustomList<string>();
+            string expected = "God Dammit Randy";
+            testList.Add("God ");
+            testList.Add("Dammit ");
+            testList.Add("Randy");
+            string actual = testList.ToString();
+            Assert.AreEqual(expected, actual);
+        }
+
+        //overload minus operator
+        //   [TestMethod]
+        //   public void MinusOverloadOne()
+        //       CustomList<string> testListOne = new CustomList<string>();
+        //       CustomList<string> testListTwo = new CustomList<string>();
+        //        CustomList<string> testListThree = new CustomList<string>();
+
+        //}
     }
+}
 
        
 
